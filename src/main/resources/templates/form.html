@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> إستمارة الانخراط في صفوف الاتحاد العام الطلابي الحر فرع قسنطينة 2</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <!-- bootstrap styles -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body dir="rtl">
+
+<!-- header -->
+<center>
+    <div class="header"></div>
+</center>
+<!-- form section -->
+<section class="form container w-75">
+    <div class="description mt-3 mb-2">
+        <h1>
+            إستمارة الانخراط في صفوف الاتحاد العام الطلابي الحر فرع قسنطينة 2
+        </h1>
+        <p>
+            ضمن الحملة التي يطلقها الاتحاد العام الطلابي الحر فرع قسنطينة 2 للانخراط في صفوفه هاهو يضع بين أيديكم هذه الاستمارة، فيرجى من كل الطلبة ملء المعلومات بدقة وبعدها سيتم التواصل والاتصال بكل المقبولين إن شاء الله تعالى.
+        </p>
+        <div id = "errorContainer" class="error-container">
+        </div>
+    </div>
+    <form th:object="${studentForm}" id="form" class="row mt-5" th:action="@{/register}" method="post"  >
+        <div dir="ltr" class="col-md-12">
+            <label for="email" class="form-label">*Email</label>
+            <input type="email" class="form-control" id="email" name="email" th:field="*{email}" placeholder="example@exam.dom" required>
+        </div>
+        <div class="col-md-6 mt-3">
+            <label for="firstName" class="form-label">* الاسم</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" th:field="*{firstName}" placeholder="first name" required>
+        </div>
+        <div class="col-md-6 mt-3">
+            <label for="lastName" class="form-label">* اللقب</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" th:field="*{lastName}" placeholder="last name" required>
+        </div>
+        <div class="col-md-6 mt-3">
+            <label for="birthdate" class="form-label">* تاريخ الميلاد</label>
+            <input type="date" class="form-control" id="birthdate" name="birthdate" th:field="*{birthdate}" required>
+        </div>
+        <div class="col-md-6 mt-3">
+            <label for="studentNumber" class="form-label">* رقم التسجيل</label>
+            <input type="number" class="form-control" id="studentNumber" name="studentNumber" th:field="*{studentNumber}" placeholder="student number" min="111111111111" max="999999999999" required>
+            <div class="error"></div>
+        </div>
+        <div class="row justify-content-start mt-3">
+            <div class="form-check col-2 ms-5">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male" th:checked="*{gender == 'male'}">
+                <label class="form-check-label " for="male">* ذكر</label>
+            </div>
+            <div class="form-check col-2">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female" th:checked="*{gender == 'female'}">
+                <label class="form-check-label" for="female">* أنثى</label>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <label for="department" class="form-label">* الكلية التي تدرس فيها</label>
+            <select id="department" class="form-select" name="department" th:field="*{department}" required>
+                <option value="" selected>Choose...</option>
+                <option value="كلية التكنولوجيات الحديثة للمعلومات والإتصال">كلية التكنولوجيات الحديثة للمعلومات والإتصال</option>
+                <option value="كلية علم النفس وعلوم التربية">كلية علم النفس وعلوم التربية</option>
+                <option value="كلية العلوم الإقتصادية، العلوم التجارية وعلوم التسيير">كلية العلوم الإقتصادية، العلوم التجارية وعلوم التسيير</option>
+                <option value="كلية العلوم الإنسانية والإجتماعية">كلية العلوم الإنسانية والإجتماعية</option>
+                <option value="معهد علم المكتبات والأرشيف">معهد علم المكتبات والأرشيف</option>
+                <option value="معهد علوم التقنيات والنشاطات البدنية والرياضية">معهد علوم التقنيات والنشاطات البدنية والرياضية</option>
+            </select>
+        </div>
+
+        <div class="col-md-6 mt-3">
+            <label for="speciality" class="form-label">* اسم التخصص</label>
+            <input type="text" class="form-control" id="speciality" name="speciality" th:field="*{speciality}" required>
+        </div>
+        <div class="col-12 mt-3">
+            <label for="studyYear" class="form-label">* السنة التي تدرس فيها</label>
+            <select id="studyYear" class="form-select" name="studyYear" th:field="*{studyYear}" required>
+                <option value="" selected>Choose...</option>
+                <option value="أولى ليسانس">أولى ليسانس</option>
+                <option value="ثانية ليسانس">ثانية ليسانس</option>
+                <option value="ثالثة ليسانس">ثالثة ليسانس</option>
+                <option value="أولى ماستر">أولى ماستر</option>
+                <option value="ثانية ماستر">ثانية ماستر</option>
+                <option value="دكتوراه">دكتوراه</option>
+                <option value="أولى مهندس دولة">أولى مهندس دولة</option>
+                <option value="ثانية مهندس دولة">ثانية مهندس دولة</option>
+            </select>
+        </div>
+        <div class="col-12 mt-3">
+            <label for="accommodation" class="form-label">إسم الإقامة الجامعية إن كنت مقيما</label>
+            <input type="text" class="form-control" id="accommodation" name="accommodation">
+        </div>
+        <div class="col-12 mt-3">
+            <label for="phoneNumber" class="form-label"> رقم الهاتف</label>
+            <input type="number" class="form-control" id="phoneNumber" name="phoneNumber">
+        </div>
+        <div class="col-12 mt-3">
+            <label for="facebookURL" class="form-label"> رابط حساب الفيسبوك</label>
+            <input type="text" class="form-control" id="facebookURL" name="facebookURL">
+        </div>
+        <div class="col-12 mt-3">
+            <label for="hobbies" class="form-label"> ماهي ميولاتك ومهاراتك</label>
+            <input type="text" class="form-control" id="hobbies" name="hobbies">
+        </div>
+        <div class="col-12 mt-3">
+            <label for="joining_reason" class="form-label">* لماذا تريد الانخراط</label>
+            <input type="text" class="form-control" id="joining_reason" name="joining_reason">
+        </div>
+        <div class="col-12 mt-3 row justify-content-around">
+            <button type="submit" class="btn btn-success w-25">submit</button>
+            <button type="reset" class="btn btn-outline-danger w-25">reset</button>
+        </div>
+    </form>
+
+    <script src="isNullOrBlank.js"></script>
+
+
+
+</section>
+
+<!-- footer -->
+<section class="mt-5" dir="ltr">
+    <div class="text-center p-3 mb-1">
+        © 2024 Copyright:
+        <a class="" href="https://github.com/Nadjibochacha">MED DEV </a> &
+        <a href="https://github.com/ZaidSlimane">ZAID SLIMANE</a>
+    </div>
+</section>
+
+<!-- bootstrap files -->
+<script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"
+></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>

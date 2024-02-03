@@ -1,0 +1,62 @@
+@font-face {
+    font-family: cairo;
+    src: url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;500;600;800;900;1000&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600&family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Playpen+Sans:wght@100;200;300;400;500;600;700;800&display=swap')
+    format("opentype");
+}
+*{
+    font-family: cairo;
+}
+body{
+    background-color: rgb(146, 218, 187);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.header{
+    width: 90%;
+    height: 180px;
+    background-image: url("/static/images/header.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(0, 95, 0);
+}
+.description{
+    background: rgb(219, 219, 219);
+    padding: 20px;
+    border-radius: 15px;
+    border-top: 10px solid rgb(0, 95, 0);
+
+}
+.description h1{
+    text-align: center;
+    padding:0 80px ;
+    font-size: 3rem;
+    font-weight: 800;
+}
+.description .note{
+    color: red;
+    border-top: 1px solid black;
+    padding-top:10px;
+}
+form{
+    background: rgb(219, 219, 219);
+    border-top: 10px solid rgb(0, 95, 0);
+    border-radius: 15px;
+    padding: 20px;
+    
+}
+.form form div input[type = radio]{
+    position: relative;
+    left: 60px;
+}
+.form form div input:focus, .form form div select:focus{
+    box-shadow: 0 0 15px rgb(0, 95, 0);
+    border: none;
+}
+.form form div label{
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding-right: 10px;
+}
